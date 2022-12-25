@@ -44,7 +44,7 @@ const int SR04_echoPin = D2;                // for SR04 config
 #define NUM_LEDS_MAX 100                    // For initialization - recommend actual max 50 LEDs if built as shown
 #define WIFIHOSTNAME "ESP_ParkAsst"         // Host name for WiFi/Router
 #define MQTTCLIENT "parkasst"               // MQTT Client Name
-#define OTA_HOSTNAME "ParkAssistOTA"        // Hostname to broadcast as port in the IDE of OTA Updates
+#define d_HOSTNAME "ParkAssistOTA"        // Hostname to broadcast as port in the IDE of OTA Updates
 #define MQTT_TOPIC_SUB "cmnd/parkasst"      // Default MQTT subscribe topic
 #define MQTT_TOPIC_PUB "stat/parkasst"      // Default MQTT publish topic
 
@@ -321,26 +321,26 @@ void handleRoot() {
       <b><u>Parking Distances</u></b>:<br>\
       These values, in inches, specify when the LED strip wakes (Wake distance), when the countdown starts (Active distance), when the car is in the desired parked position (Parked distance) or when it has pulled too far forward and should back up (Backup distance).<br><br>\
       See the <a href=\"https://github.com/Resinchem/ESP-Parking-Assistant/wiki/04-Using-the-Web-Interface\">Github wiki</a> for more information on setting these values for your situation. \
-      You may enter decimal values (e.g. 27.5\") and these will be converted to millimeters in the code.  Values should decrease from Wake through Backup... maximum value is 192 inches (16 ft) and minimum value is 12 inches (1 ft).<br><br>\
+      You may enter decimal values (e.g. 27.5\") and these will be converted to millimeters in the code.  Values should decrease from Wake through Backup... maximum value is 192 inches (16 ft) and minimum value is 1 inches (1/12ft).<br><br>\
       <table>\
       <tr>\
       <td><label for=\"wakedistance\">Wake Distance:</label></td>\
-      <td><input type=\"number\" min=\"12\" max=\"192\" step=\"0.1\" name=\"wakedistance\" value=\"";
+      <td><input type=\"number\" min=\"1\" max=\"192\" step=\"0.1\" name=\"wakedistance\" value=\"";
   mainPage += String(intWakeDistance);    
   mainPage += "\"> inches</td>\
       </tr>\
       <td><label for=\"activedistance\">Active Distance:</label></td>\
-      <td><input type=\"number\" min=\"12\" max=\"192\" step=\"0.1\" name=\"activedistance\" value=\"";
+      <td><input type=\"number\" min=\"1\" max=\"192\" step=\"0.1\" name=\"activedistance\" value=\"";
   mainPage += String(intStartDistance);     
   mainPage += "\"> inches</td>\
       </tr>\
       <td><label for=\"parkeddistance\">Parked Distance:</label></td>\
-      <td><input type=\"number\" min=\"12\" max=\"192\" step=\"0.1\" name=\"parkeddistance\" value=\"";
+      <td><input type=\"number\" min=\"1\" max=\"192\" step=\"0.1\" name=\"parkeddistance\" value=\"";
   mainPage += String(intParkDistance);     
   mainPage += "\"> inches</td>\
       </tr>\
       <td><label for=\"backupistance\">Backup Distance:</label></td>\
-      <td><input type=\"number\" min=\"12\" max=\"192\" step=\"0.1\" name=\"backupdistance\" value=\"";
+      <td><input type=\"number\" min=\"1\" max=\"192\" step=\"0.1\" name=\"backupdistance\" value=\"";
   mainPage += String(intBackupDistance);     
   mainPage += "\"> inches</td>\
       </tr>\
